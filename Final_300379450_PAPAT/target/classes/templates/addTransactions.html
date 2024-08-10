@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <title>Add Transaction</title>
+</head>
+
+
+<body>
+<section layout:fragment="content">
+    <div class="col-md-6 offset-md-3">
+        <form method="post" th:action="@{save}">
+
+            <! –– display transaction id ––>
+            <div>
+                <label>Transaction Code</label>
+                <!--/*@thymesVar id="transaction" type=""*/-->
+                <input class="form-control" type="text" name="id" th:value="${transaction.id}">
+                <span th:errors="${transaction.id}"></span>
+            </div>
+
+            <! –– display Salesman Name for that transaction ––>
+            <div>
+                <label>Salesman</label>
+                <input class="form-control" type="text" name="name" th:value="${transaction.name}">
+                <span th:errors="${transaction.name}"></span>
+            </div>
+
+            <! –– display item name ––>
+            <div>
+                <label>Item</label>
+                <input class="form-control" type="text" name="item" th:value="${transaction.item}">
+                <span th:errors="${transaction.item}"></span>
+            </div>
+
+            <! –– display amount for that item ––>
+            <div>
+                <label>Amount</label>
+                <!--/*@thymesVar id="transaction" type=""*/-->
+                <input class="form-control" type="text" name="amount" th:value="${transaction.amount}">
+                <span th:errors="${transaction.amount}"></span>
+            </div>
+
+            <! –– display transaction date ––>
+            <div>
+                <label>Transaction Date</label>
+                <!--/*@thymesVar id="transaction" type=""*/-->
+                <input class="form-control" type="text" name="dot" th:value="${transaction.dot}">
+                <span th:errors="${transaction.dot}"></span>
+            </div>
+
+            <button type="submit" class="btn-primary" th:href="@{/index}">Save</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>
